@@ -43,6 +43,19 @@ namespace api.Database
                 if(temp.Size == "L"){
                     temp.Capacity = "6-8 students";
                 } 
+                int tempInt = int.Parse(temp.RoomNumber);
+                if(tempInt >= 2000 && tempInt < 3000)
+                {
+                    temp.FloorNumber = "Floor 2";
+                }
+                if(tempInt >= 1000 && tempInt < 2000)
+                {
+                    temp.FloorNumber = "Floor 1";
+                }
+                if(tempInt >= 0 && tempInt < 1000)
+                {
+                    temp.FloorNumber = "Floor G";
+                }
                 allRooms.Add(temp);
             }
             return allRooms; 
