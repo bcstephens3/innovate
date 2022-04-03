@@ -11,7 +11,7 @@ namespace api
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main(string[] args) //i am testing git stuff
         {
             CreateHostBuilder(args).Build().Run();
         }
