@@ -31,6 +31,20 @@ class App extends React.Component {
   render() {
     const { DataisLoaded, items } = this.state;
     const mappedItems = items.map((item) => item.size == "S");
+    function change () {
+      if(document.getElementById(test).status == 'true'){
+        document.getElementById(test).status = "icon_available";
+      }else{
+        document.getElementById(test).status = "icon_unavailable";
+      }
+    }
+    // function change2 (iconID){
+    //   if(document.getElementById(test).status=="true"){
+    //     document.getElementById(test).className = "bi bi-check-square-fill display-4";
+    //   }else{
+    //     document.getElementById(test).className = "bi bi-x-square-fill display-4";
+    //   }
+    // }
     // const { items2 } = this.props.items.filter(function (item) {
     //   return item.size == "S";
     // });
@@ -44,19 +58,26 @@ class App extends React.Component {
     return (
       <div class="App">
         {/* <div style={{ display: "block", width: 700, padding: 30 }}> */}
-        <h4>myBama Room Status</h4>
-        <Tabs className="justify-content-center" defaultActiveKey="first">
-          <Tab eventKey="first" title="All">
-            <h1>this is a test</h1>
+        {/* <h4>myBama Room Status</h4> */}
+        <div id="jumbotron" class="p-5 mb-4 text-white rounded-3">
+          <img src="https://culverhouse.ua.edu/wp-content/uploads/2021/09/hewson-1-scaled-e1631133826890.jpg">
+          {/* <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">myBama Room Status</h1>
+          <p class="col-md-8 fs-4"></p>
+        </div> */}
+        </img>
+      </div>
+        <Tabs className="nav-pills justify-content-center" defaultActiveKey="first">
+          <Tab className="tab-content" eventKey="first" title="All">
             <div class="container d-flex justify-content-center mt-50 mb-50 p-5">
               <div class="row">
                 {" "}
                 {items.map((item) => (
                   <div class="col-md-4 mt-5">
-                    <div id="C100/100" class="card">
+                    <div id="test" class="card">
                       <i
-                        id="icon_unavailable"
-                        class="bi bi-check-square-fill display-4"
+                        id={change}
+                        class="bi bi-clock display-4"
                       ></i>
                       <div class="card-body text-center">
                         <h3 class="mb-0 font-weight-semibold text-white">
@@ -81,8 +102,7 @@ class App extends React.Component {
             </div>
           </Tab>
 
-          <Tab eventKey="second" title="Size">
-            <h1>this is a test</h1>
+          <Tab className="tab-content" eventKey="second" title="Small">
             <div class="container d-flex justify-content-center mt-50 mb-50 p-5">
               <div class="row">
                 {" "}
@@ -91,10 +111,10 @@ class App extends React.Component {
                 .filter(item => item.size === 'S')
                 .map(item =>
                     <div key={item.roomNumber} class="col-md-4 mt-5">
-                      <div id="C100/100" class="card">
+                      <div id="test" class="card">
                         <i
-                          id="icon_unavailable"
-                          class="bi bi-check-square-fill display-4"
+                          id={change}
+                          class="bi bi-clock display-4"
                         ></i>
                         <div class="card-body text-center">
                           <h3 class="mb-0 font-weight-semibold text-white">
@@ -120,8 +140,7 @@ class App extends React.Component {
             </div>
           </Tab>
 
-          <Tab eventKey="third" title="Medium">
-            <h1>this is a test</h1>
+          <Tab className="tab-content" eventKey="third" title="Medium">
             <div class="container d-flex justify-content-center mt-50 mb-50 p-5">
               <div class="row">
                 {" "}
@@ -129,10 +148,10 @@ class App extends React.Component {
                 .filter(item => item.size === 'M')
                 .map(item =>
                         <div key={item.roomNumber} class="col-md-4 mt-5">
-                          <div id="C100/100" class="card">
+                          <div id="test" class="card">
                             <i
-                              id="icon_unavailable"
-                              class="bi bi-check-square-fill display-4"
+                              id={change}
+                              class="bi bi-clock display-4"
                             ></i>
                             <div class="card-body text-center">
                               <h3 class="mb-0 font-weight-semibold text-white">
@@ -153,12 +172,49 @@ class App extends React.Component {
                           </div>
                         </div>
                       )
-                    })
+                    }
               </div>
             </div>
           </Tab>
-          <Tab eventKey="fourth" title="Available">
-          <h1>this is a test</h1>
+
+          <Tab className="tab-content" eventKey="fourth" title="Large">
+            <div class="container d-flex justify-content-center mt-50 mb-50 p-5">
+              <div class="row">
+                {" "}
+                {items
+                .filter(item => item.size === 'L')
+                .map(item =>
+                        <div key={item.roomNumber} class="col-md-4 mt-5">
+                          <div id="test" class="card">
+                            <i
+                              id={change}
+                              class="bi bi-clock display-4"
+                            ></i>
+                            <div class="card-body text-center">
+                              <h3 class="mb-0 font-weight-semibold text-white">
+                                <strong>{item.roomNumber}</strong>
+                              </h3>
+                              <h6 class="font-weight-semibold mb-2 text-white">
+                                {item.name}
+                              </h6>
+                              <div class="mb-2">
+                                <h6 class="font-weight-semibold mb-2 text-white">
+                                  {item.status}
+                                </h6>
+                                <h6 class="font-weight-semibold mb-2 text-white">
+                                  {item.size}
+                                </h6>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    }
+              </div>
+            </div>
+          </Tab>
+
+          <Tab className="tab-content" eventKey="fifth" title="Available">
             <div class="container d-flex justify-content-center mt-50 mb-50 p-5">
               <div class="row">
                 {" "}
@@ -166,10 +222,10 @@ class App extends React.Component {
                 .filter(item => item.status === 'true')
                 .map(item =>
                         <div key={item.roomNumber} class="col-md-4 mt-5">
-                          <div id="C100/100" class="card">
+                          <div id="test" class="card">
                             <i
-                              id="icon_unavailable"
-                              class="bi bi-check-square-fill display-4"
+                              id={change}
+                              class="bi bi-clock display-4"
                             ></i>
                             <div class="card-body text-center">
                               <h3 class="mb-0 font-weight-semibold text-white">

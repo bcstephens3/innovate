@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Login - CAS &#8211; Central Authentication Service</title>
+    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><!--<link rel="stylesheet" th:href="@{#{webjars.fontawesomemin.css}}"/>--><!--<link rel="stylesheet" th:href="@{${#themes.code('standard.custom.css.file')}}"/>--><!--<link rel="stylesheet" th:href="@{${#themes.code('standard.custom.css.bootstrap.file')}}"/>--><!--<link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon"/>--><!--<script type="text/javascript" th:src="@{#{webjars.jquerymin.js}}"></script>--><link rel="stylesheet" type="text/css" href="https://login.ua.edu/cas/webjars/normalize.css/8.0.1/normalize.css" /><link rel="stylesheet" type="text/css" href="https://login.ua.edu/cas/webjars/bootstrap/4.6.0/css/bootstrap-grid.min.css" /><link rel="stylesheet" type="text/css" href="" /><link rel="stylesheet" type="text/css" href="https://login.ua.edu/cas/webjars/mdi__font/5.8.55/css/materialdesignicons.css" /><link rel="stylesheet" type="text/css" href=""/><link rel="stylesheet" href="https://login.ua.edu/cas/themes/ua-main/css/cas.css"/><link rel="stylesheet" href="https://login.ua.edu/cas/themes/ua-main/css/bootstrap.min.css"/><link href="https://login.ua.edu/cas/themes/ua-main/css/fa-all.min.css" rel="stylesheet"/><link rel="shortcut icon"
+          href="https://login.ua.edu/cas/favicon.ico" /><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/></head>
+
+<body style="max-width:960px;margin:auto;font-size:16px;" class="login">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">    
+<script type="text/javascript" src="https://login.ua.edu/cas/webjars/es5-shim/4.5.9/es5-shim.js"></script>
+<script type="text/javascript" src="https://login.ua.edu/cas/webjars/css-vars-ponyfill/2.3.1/dist/css-vars-ponyfill.min.js"></script>
+<script type="text/javascript" src="https://login.ua.edu/cas/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://login.ua.edu/cas/webjars/material-components-web/10.0.0/dist/material-components-web.js"></script>
+
+<script type="text/javascript" src=""></script>
+
+<script>
+    if (typeof resourceLoadedSuccessfully === "function") {
+        resourceLoadedSuccessfully();
+    }
+    cssVars({});
+</script>
+
+<script>
+    /*<![CDATA[*/
+
+    var trackGeoLocation = false;
+
+    var googleAnalyticsTrackingId = null;
+
+    if (googleAnalyticsTrackingId != null && googleAnalyticsTrackingId != '') {
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', googleAnalyticsTrackingId, 'auto');
+        ga('send', 'pageview');
+    }
+
+    /*]]>*/
+</script>
+<header class="container" role="banner" style="padding-bottom:0;">
+	<div class="card" style="margin:0;">
+		<div class="row card-body" style="display:flex;align-items:center;margin:0;">
+			<img src="https://login.ua.edu/cas/themes/ua-main/ua-square-logo-100x100.png" style="margin-right:1em;"  width="60" alt="The University of Alabama script logo"><div>
+			    <h1 style="margin:0 0 2px;font-size:1.25rem;color:#22292f;">The University of Alabama</h1>
+			    <h2 style="margin:0;font-size:1rem;color:#525252;">Login Portal</h2>
+			</div>
+		 </div>
+	     <div>
+    </header>
+
+<main role="main" class="container mt-3 mb-3">
+    <div id="content" class="row">
+	<div class="col-md"> 
+	    <div class="card">
+                <div class="card-header text-center">
+                    <h2 style="font-size:1.5rem;margin:0;color:#3d4852;">Login</h2>
+                    <!--<span class="fa-stack fa-2x hidden-xs">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+		    </span>--></div>
+                <div class="card-body" style="padding-top:0;">
+                    <form method="post" id="fm1" action="login">
+                        <!--<h3 th:utext="#{screen.welcome.instructions}">Enter your Username and Password</h3>--><section class="form-group">
+                            </section>
+
+                        <section class="form-group">
+				<!--<label for="username" th:utext="#{screen.welcome.label.netid}">myBama Id</label>--><label for="username">myBama Id:</label>
+
+                            <div>
+                                <input class="form-control required"
+                                       id="username"
+                                       size="25"
+                                       tabindex="1"
+                                       type="text"
+                                       accesskey="u"
+				       autocorrect="off"
+	   			       autocapitalize="off"
+	      			       spellcheck="false"
+                                       autocomplete="off" name="username" value=""/></div>
+                        </section>
+
+                        <section class="form-group">
+                            <label for="password"><span class="accesskey">P</span>assword:</label>
+
+                            <div>
+                                <input class="form-control required"
+                                       type="password"
+                                       id="password"
+                                       size="25"
+                                       tabindex="2"
+                                       accesskey="p"
+                                       autocomplete="off" name="password" value=""/><span id="capslock-on" style="display:none;">
+                                <p>
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <span>CAPSLOCK key is turned on!</span>
+                                </p>
+                            </span>
+                            </div>
+                        </section>
+						  <a href='https://localhost:3000'>
+                        <input value="Submit" placeholder="Log In" class="btn btn-block btn-submit"
+			       style="margin:1.5rem 0"
+                        /></form>
+						</a>
+
+                    <!--<div th:unless="${passwordManagementEnabled}">
+                        <br/>
+                        <span class="fa fa-question-circle"></span>
+                        <span th:utext="#{screen.pm.button.forgotpwd}">Forgot your password?</span>
+                        <p/>
+		    </div>--><script type="text/javascript">
+                        /*<![CDATA[*/
+                        var i = "One moment please..."
+                            /*]]>*/
+                            $(document).ready(function () {
+                                $("#fm1").submit(function () {
+                                    $(":submit").attr("disabled", true);
+                                    $(":submit").attr("value", i);
+                                    return true;
+                                });
+
+				$(this).val($(this).val().toLowerCase());
+
+				$("input[name='username']").on('input', function(){
+					$(this).val($(this).val().toLowerCase());
+				})
+
+				//UA custom code to focus username input automatically
+				$("input[name='username']").focus();
+                            });
+                    </script>
+
+                    <div id="sidebar">
+        <div class="sidebar-content">
+            <p style="font-size:.75rem;color:#606f7b;">For security reasons, please <a href="logout">log out</a> and exit your web browser when you are done accessing services that require authentication!</p>
+        </div>
+    </div>
+                </div>
+            </div>
+
+
+	</div>
+	<div id="notices" class="col-md mt-3 mt-md-0">
+	    <div id="cookiesDisabled" class="card" style="display: none;">
+    <div class="card-body">
+        <h5 class="card-title">screen.cookies.disabled.title</h5>
+        <p class="card-text">screen.cookies.disabled.message</p>
+    </div>
+</div>
+	    <div id="serviceui" class="card" style="margin-bottom:20px;">
+    <div class="card-body" style="margin:.5rem 1rem;">
+	    <h2 style="margin:0 0 .5rem 0;font-size:1.5rem;color:#3d4852;font-weight:600;">myBama</h2>
+	    <div style="display:flex;align-items:center;">
+	        <img src="https://login.ua.edu/cas/themes/ua-main/duo-logo.png" style="margin-right:8px;" alt="duo logo" width="35"><p style="margin:0;font-size:12px;color:#525252;">This application supports 2 factor authentication</p>
+	    </div>
+
+	</div>
+</div>
+	    <div id="cas-resource-list" class="card d-sm-none d-md-block">
+        <div class="card-body cas-service-list">
+            <ul class="list-group">
+		<li class="list-group-item">
+		    <a href="https://oit.ua.edu/service/password-change/">
+			    <i class="fa fa-key"></i>Change Your Password
+		    </a>
+		</li>
+
+		<span>
+			<li class="list-group-item">
+			    <a href="https://bnrsupport.ua.edu/mybamaguest/">
+				    <i class="fa fa-user"></i>Student Parent or Guest Login
+			    </a>
+			</li>
+			<li class="list-group-item">
+			    <a href="https://secure.touchnet.com/C20219_tsa/web/login.jsp">
+				    <i class="fa fa-credit-card"></i>Student Financial Account Authorized User
+			    </a>
+			</li>
+			<li class="list-group-item">
+			    <a href="https://oit.ua.edu/service/password-recovery/">
+				    <i class="fa fa-star"></i>New myBama users - create password
+			    </a>
+			</li>
+			<li class="list-group-item">
+			    <a href="https://oit.ua.edu/service/duo/">
+				    <i class="fa fa-lock"></i>Set up DUO
+			    </a>
+			</li>
+			<li class="list-group-item">
+			    <a href="https://oit.ua.edu/service/duo-self-service/">
+				    <i class="fa fa-unlock"></i>Request DUO pass codes
+			    </a>
+			</li>
+		</span>
+            </ul>
+        </div>
+    </div>
+	</div>
+	<!--<div id="providers" class="col-md mt-3 mt-md-0">
+	    <div th:replace="fragments/loginProviders :: loginProviders">
+		<a href="fragments/loginProviders.html">loginProviders</a>
+	    </div>
+	</div>--></div>
+</main>
+
+<footer class="footer card" role="contentinfo">
+        <div class="container card-body">
+            <!--<span id="copyright" th:utext="#{copyright}"></span>
+            <span>Powered by <a href="http://www.apereo.org/cas">
+                Apereo Central Authentication Service
+                <span th:text="${T(org.apereo.cas.util.CasVersion).getVersion()}"></span>
+                <span th:text="${T(org.apereo.cas.util.CasVersion).getDateTime()}"></span> </a>
+	    </span>--><p style="margin:0;font-size:.65rem;color:#606f7b;">
+	       For assistance contact the IT Service Desk at
+		  <a href="tel:2053485555" style="color:#505050;font-weight:600;">205-348-5555</a>
+		  or
+		  <a href="mailto:itsd@ua.edu" style="color:#505050;font-weight:600;">itsd@ua.edu</a>
+
+		   <br/><br/>
+
+		  &copy;
+	      <a href="https://ua.edu" target="_blank" style="color:#505050;font-weight:600;">The University of Alabama</a>
+		  <span>2022</span>
+
+	     <span style="margin:0 5px;">&bull;</span>
+
+	<a href="http://www.ua.edu/disclaimer.html" target="_blank" style="color:#505050;font-weight:600;">Disclaimer</a>
+
+	   <span style="margin:0 5px;">&bull;</span>
+
+																		              <a href="https://www.ua.edu/aboutsite" target="_blank" style="color:#505050;font-weight:600;">About this Site</a>
+
+																			                 <span style="margin:0 5px;">&bull;</span>
+
+																					            <a href="https://www.ua.edu/privacy" target="_blank" style="color:#505050;font-weight:600;">Privacy</a>
+
+																				</p>
+        </div>
+    </footer>
+
+</body>
+</html>
