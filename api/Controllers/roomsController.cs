@@ -15,9 +15,11 @@ namespace api.Controllers //testing git branch stuff
     {
         // GET: api/rooms
         [HttpGet]
-        public List<string> Get() //getting all of them
+        public List<Room> Get() //getting all of them
         {
-            return new List<string> {"test1", "test2", "testing everything", "this is all of them"};
+            DatabaseRead reading = new DatabaseRead();
+            List<Room> rooms = reading.GetAll();
+            return rooms;
         }
 
         // GET: api/rooms/GetSmall
@@ -32,43 +34,61 @@ namespace api.Controllers //testing git branch stuff
 
         // GET: api/rooms/GetMedium
         [HttpGet("GetMedium")]
-        public List<string> GetMedium()
+        public List<Room> GetMedium()
         {
-            return new List<string> {"medium1", "meidum2", "lots of mediums"};;
+            string stm = @"SELECT * FROM rooms WHERE size = 'M'";
+            DatabaseRead reading = new DatabaseRead();
+            List<Room> rooms = reading.Get(stm);
+            return rooms;
         }
 
         // GET: api/rooms/GetLarge
         [HttpGet("GetLarge")]
-        public List<string> GetLarge()
+        public List<Room> GetLarge()
         {
-            return new List<string> {"llarge", "lllager", "laerges"};;
+            string stm = @"SELECT * FROM rooms WHERE size = 'L'";
+            DatabaseRead reading = new DatabaseRead();
+            List<Room> rooms = reading.Get(stm);
+            return rooms;
         }
 
         // GET: api/rooms/GetAvlb
         [HttpGet("GetAvlb")]
-        public List<string> GetAvlb()
+        public List<Room> GetAvlb()
         {
-            return new List<string> {"avlb", "this is avlb", "this is available"};;
+            string stm = @"SELECT * FROM rooms WHERE status = 'true'";
+            DatabaseRead reading = new DatabaseRead();
+            List<Room> rooms = reading.Get(stm);
+            return rooms;
         }
 
         // GET: api/rooms/GetFloorG
         [HttpGet("GetFloorG")]
-        public List<string> GetFloorG()
+        public List<Room> GetFloorG()
         {
-            return new List<string> {"g", "this is g", "this is GGGGGGGGG"};;
+            string stm = @"SELECT * FROM rooms WHERE roomnumber LIKE '0%'";
+            DatabaseRead reading = new DatabaseRead();
+            List<Room> rooms = reading.Get(stm);
+            return rooms;
         }
         // GET: api/rooms/GetFloor1
         [HttpGet("GetFloor1")]
-        public List<string> GetFloor1()
+        public List<Room> GetFloor1()
         {
-            return new List<string> {"1", "this is 1floor", "this is 111111"};;
+            string stm = @"SELECT * FROM rooms WHERE roomnumber LIKE '1%'";
+            DatabaseRead reading = new DatabaseRead();
+            List<Room> rooms = reading.Get(stm);
+            return rooms;
         }
 
         // GET: api/rooms/GetFloor2
         [HttpGet("GetFloor2")]
-        public List<string> GetFloor2()
+        public List<Room> GetFloor2()
         {
-            return new List<string> {"2", "this is 2", "this is 2"};;
+            string stm = @"SELECT * FROM rooms WHERE roomnumber LIKE '2%'";
+            DatabaseRead reading = new DatabaseRead();
+            List<Room> rooms = reading.Get(stm);
+            return rooms;
         }
 
         // POST: api/rooms
