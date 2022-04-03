@@ -7,7 +7,30 @@ namespace api.Database
     {
         public void Update(int id, Room sendRoom)
         {
-            throw new System.NotImplementedException();
+            DatabaseConnection myConnection = new DatabaseConnection();
+            string cs = myConnection.cs;
+
+            using var con = new MySqlConnection(cs);
+            con.Open();
+
+            if(sendRoom.Status == "true")
+            {
+                string stm = @"UPDATE rooms SET status = 'false' WHERE roomnumber = '" + sendRoom.RoomNumber + "'";
+            }
+            else
+            {
+                string stm = @"UPDATE rooms SET status = 'true' WHERE roomnumber = '" + sendRoom.RoomNumber + "'";
+            }
+
+            using var cmd = new MySqlCommand(stm, con);
+
+            // cmd.Parameters.AddWithValue("@title", mySong.SongTitle);
+            // cmd.Parameters.AddWithValue("@timestamp", mySong.SongTimestamp);
+            // cmd.Parameters.AddWithValue("@deleted", mySong.Deleted);
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
         }
     }
 }

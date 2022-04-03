@@ -20,10 +20,14 @@ namespace api.Database
             status,
             size,
             starttime,
-            endtime) VALUES(@room_number, 
+            endtime,
+            deleted) VALUES(@roomnumber, 
                               @name, 
                               @status, 
-                              @Favorited)";
+                              @size,
+                              @starttime,
+                              @endtime,
+                              @deleted)";
 
             using var cmd = new MySqlCommand(stm, con);
 
@@ -31,8 +35,9 @@ namespace api.Database
             cmd.Parameters.AddWithValue("@name", room.Name);
             cmd.Parameters.AddWithValue("@status", room.Status);
             cmd.Parameters.AddWithValue("@size", room.Size);
-            cmd.Parameters.AddWithValue("@starttime", room.Size);
-            cmd.Parameters.AddWithValue("@endtime", room.Size);
+            cmd.Parameters.AddWithValue("@starttime", room.StartTime);
+            cmd.Parameters.AddWithValue("@endtime", room.EndTime);
+            cmd.Parameters.AddWithValue("@deleted", room.Deleted);
 
             //cmd.Prepare();
 
