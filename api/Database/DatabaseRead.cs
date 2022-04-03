@@ -34,6 +34,15 @@ namespace api.Database
                     EndTime = rdr.IsDBNull(5) ? null : rdr.GetString(5),
                     Deleted = rdr.IsDBNull(6) ? null : rdr.GetString(6)
                 };
+                if(temp.Size == "S"){
+                    temp.Capacity = "2-4 students";
+                } 
+                if(temp.Size == "M"){
+                    temp.Capacity = "4-6 students";
+                } 
+                if(temp.Size == "L"){
+                    temp.Capacity = "6-8 students";
+                } 
                 allRooms.Add(temp);
             }
             return allRooms; 
