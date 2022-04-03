@@ -27,21 +27,26 @@ class App extends React.Component {
         });
       });
   }
+
   render() {
     const { DataisLoaded, items } = this.state;
+    const mappedItems = items.map((item) => item.size == "S");
+    // const { items2 } = this.props.items.filter(function (item) {
+    //   return item.size == "S";
+    // });
+
     if (!DataisLoaded)
       return (
         <div>
           <h1> Your data didn't load :/ </h1>{" "}
         </div>
       );
-
     return (
       <div class="App">
         {/* <div style={{ display: "block", width: 700, padding: 30 }}> */}
-        <h4>React-Bootstrap Tab Component</h4>
-        <Tabs defaultActiveKey="second">
-          <Tab eventKey="first" title="Dashboard">
+        <h4>myBama Room Status</h4>
+        <Tabs className="justify-content-center" defaultActiveKey="first">
+          <Tab eventKey="first" title="All">
             <h1>this is a test</h1>
             <div class="container d-flex justify-content-center mt-50 mb-50 p-5">
               <div class="row">
@@ -75,11 +80,119 @@ class App extends React.Component {
               </div>
             </div>
           </Tab>
-          <Tab eventKey="second" title="Setting">
-            Hii, I am 2nd tab content
+
+          <Tab eventKey="second" title="Size">
+            <h1>this is a test</h1>
+            <div class="container d-flex justify-content-center mt-50 mb-50 p-5">
+              <div class="row">
+                {" "}
+                {/* {items.sort((a, b) => (a.size > b.size) ? 1 : -1)} */}
+                {items
+                .filter(item => item.size === 'S')
+                .map(item =>
+                    <div key={item.roomNumber} class="col-md-4 mt-5">
+                      <div id="C100/100" class="card">
+                        <i
+                          id="icon_unavailable"
+                          class="bi bi-check-square-fill display-4"
+                        ></i>
+                        <div class="card-body text-center">
+                          <h3 class="mb-0 font-weight-semibold text-white">
+                            <strong>{item.roomNumber}</strong>
+                          </h3>
+                          <h6 class="font-weight-semibold mb-2 text-white">
+                            {item.name}
+                          </h6>
+                          <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2 text-white">
+                              {item.status}
+                            </h6>
+                            <h6 class="font-weight-semibold mb-2 text-white">
+                              {item.size}
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                }
+              </div>
+            </div>
           </Tab>
-          <Tab eventKey="third" title="Aboutus">
-            Hii, I am 3rd tab content
+
+          <Tab eventKey="third" title="Medium">
+            <h1>this is a test</h1>
+            <div class="container d-flex justify-content-center mt-50 mb-50 p-5">
+              <div class="row">
+                {" "}
+                {items
+                .filter(item => item.size === 'M')
+                .map(item =>
+                        <div key={item.roomNumber} class="col-md-4 mt-5">
+                          <div id="C100/100" class="card">
+                            <i
+                              id="icon_unavailable"
+                              class="bi bi-check-square-fill display-4"
+                            ></i>
+                            <div class="card-body text-center">
+                              <h3 class="mb-0 font-weight-semibold text-white">
+                                <strong>{item.roomNumber}</strong>
+                              </h3>
+                              <h6 class="font-weight-semibold mb-2 text-white">
+                                {item.name}
+                              </h6>
+                              <div class="mb-2">
+                                <h6 class="font-weight-semibold mb-2 text-white">
+                                  {item.status}
+                                </h6>
+                                <h6 class="font-weight-semibold mb-2 text-white">
+                                  {item.size}
+                                </h6>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })
+              </div>
+            </div>
+          </Tab>
+          <Tab eventKey="fourth" title="Available">
+          <h1>this is a test</h1>
+            <div class="container d-flex justify-content-center mt-50 mb-50 p-5">
+              <div class="row">
+                {" "}
+                {items
+                .filter(item => item.status === 'true')
+                .map(item =>
+                        <div key={item.roomNumber} class="col-md-4 mt-5">
+                          <div id="C100/100" class="card">
+                            <i
+                              id="icon_unavailable"
+                              class="bi bi-check-square-fill display-4"
+                            ></i>
+                            <div class="card-body text-center">
+                              <h3 class="mb-0 font-weight-semibold text-white">
+                                <strong>{item.roomNumber}</strong>
+                              </h3>
+                              <h6 class="font-weight-semibold mb-2 text-white">
+                                {item.name}
+                              </h6>
+                              <div class="mb-2">
+                                <h6 class="font-weight-semibold mb-2 text-white">
+                                  {item.status}
+                                </h6>
+                                <h6 class="font-weight-semibold mb-2 text-white">
+                                  {item.size}
+                                </h6>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })
+              </div>
+            </div>
           </Tab>
         </Tabs>
         {/* </div> */}

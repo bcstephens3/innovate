@@ -1,6 +1,6 @@
 .App {
 	text-align: center;
-	color: Green;
+	color: #9E1B32;
 }
 .App-header {
 	background-color: #282c34;
@@ -50,7 +50,7 @@ canvas{
 }
 
 #icon_unavailable{
-  color: #E22030;
+  color: #9E1B32;
   text-align: center;
   size: 100px;
   font-display: 4px;

@@ -7053,24 +7053,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/andrewstevenson/.nuget/packages/": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/andrewstevenson/Repos/innovate/api/api.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\Spring2022\\Innovate\\innovate\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "/Users/andrewstevenson/Repos/innovate/api/api.csproj",
-      "packagesPath": "/Users/andrewstevenson/.nuget/packages/",
-      "outputPath": "/Users/andrewstevenson/Repos/innovate/api/obj/",
+      "projectPath": "C:\\Users\\User\\Documents\\Spring2022\\Innovate\\innovate\\api\\api.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Documents\\Spring2022\\Innovate\\innovate\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/andrewstevenson/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7114,8 +7116,8 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.NETCore.App.Host.osx-x64",
-            "version": "[5.0.13, 5.0.13]"
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.14, 5.0.14]"
           }
         ],
         "frameworkReferences": {
@@ -7126,7 +7128,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
