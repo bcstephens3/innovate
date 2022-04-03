@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using api.Models;
+using api.Database;
 
 namespace api.Controllers //testing git branch stuff
 {
@@ -20,9 +22,12 @@ namespace api.Controllers //testing git branch stuff
 
         // GET: api/rooms/GetSmall
         [HttpGet("GetSmall")]
-        public string GetSmall()
+        public List<Room> GetSmall()
         {
-            return "only one small room";
+            string stm = @"SELECT * FROM rooms WHERE size = 'S'";
+            DatabaseRead reading = new DatabaseRead();
+            List<Room> rooms = reading.Get(stm);
+            return rooms;
         }
 
         // GET: api/rooms/GetMedium
