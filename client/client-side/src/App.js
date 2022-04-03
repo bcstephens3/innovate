@@ -18,7 +18,7 @@ class App extends React.Component {
   // ComponentDidMount is used to
   // execute the code
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("https://localhost:8888/api/rooms")
       .then((res) => res.json())
       .then((json) => {
         this.setState({
