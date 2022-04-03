@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using api.Models;
 using api.Database;
+using Microsoft.AspNetCore.Cors;
 
 namespace api.Controllers //testing git branch stuff
 {
@@ -14,6 +15,7 @@ namespace api.Controllers //testing git branch stuff
     public class roomsController : ControllerBase
     {
         // GET: api/rooms
+        [EnableCors("AnotherPolicy")]
         [HttpGet]
         public List<Room> Get() //getting all of them
         {
