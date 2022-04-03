@@ -15,7 +15,7 @@ namespace api.Controllers //testing git branch stuff
     public class roomsController : ControllerBase
     {
         // GET: api/rooms
-        [EnableCors("AnotherPolicy")]
+        [EnableCors("OpenPolicy")]
         [HttpGet]
         public List<Room> Get() //getting all of them
         {
